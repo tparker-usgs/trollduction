@@ -1211,7 +1211,9 @@ class DataWriter(Thread):
 
     def write(self, obj, item, params):
         """Write to queue."""
-        self.prod_queue.put((obj, list(item), params.copy()))
+        l = []
+        l.append(item)
+        self.prod_queue.put((obj, l, params.copy()))
 
     def stop(self):
         """Stop the data writer."""
