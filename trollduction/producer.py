@@ -718,7 +718,8 @@ class DataProcessor(object):
                                     product.attrib['id'])
                 reqs |= composite.prerequisites
             except AttributeError:
-                LOGGER.error("TOMP SAYS %s", type(composite))
+                LOGGER.error("TOMP SAYS ", str(dir(self.global_data.image)))
+                LOGGER.error("TOMP SAYS ", type(composite))
                 LOGGER.info("Composite %s not available",
                             product.attrib['id'])
         return reqs
